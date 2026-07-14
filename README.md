@@ -6,11 +6,12 @@ Tiga skill Claude Code untuk alur kerja UI/UX lengkap: riset → desain → sera
 
 1. **Pasang Claude Code** (CLI, desktop app, atau claude.ai/code) dan login.
 2. **Hubungkan Figma** (untuk mode yang membaca/menulis Figma): pasang plugin resmi `figma@claude-plugins-official` dari marketplace plugin Claude Code, lalu login akun Figma saat diminta.
-3. **Salin 3 folder skill** ini ke `~/.claude/skills/` di mesin tujuan:
+3. **Ambil skill-nya** — clone dari GitHub lalu salin ke `~/.claude/skills/`:
    ```
-   ux-design/   ux-research/   ux-handoff/
+   git clone https://github.com/Rafiandra-Widh/Design-Experience-Skills.git
+   cp -R Design-Experience-Skills/ux-* ~/.claude/skills/
    ```
-   Masing-masing berisi `SKILL.md` + folder `reference/`. Tidak ada setting lain — skill terdeteksi otomatis di sesi berikutnya.
+   (Atau salin manual 3 folder `ux-design/ ux-research/ ux-handoff/`.) Tidak ada setting lain — skill terdeteksi otomatis di sesi berikutnya.
 4. Cek: ketik `/ux-` di Claude Code — ketiga skill muncul di autocomplete.
 
 ## Dua cara memakai
