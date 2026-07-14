@@ -13,6 +13,7 @@ Tiga skill Claude Code untuk alur kerja UI/UX lengkap: riset → desain → sera
    ```
    (Atau salin manual 3 folder `ux-design/ ux-research/ ux-handoff/`.) Tidak ada setting lain — skill terdeteksi otomatis di sesi berikutnya.
 4. Cek: ketik `/ux-` di Claude Code — ketiga skill muncul di autocomplete.
+5. *(Opsional tapi sangat disarankan)* **Isi taste profile** — salin `design-taste.template.md` ke `~/.claude/design-taste.md`, lalu minta Claude mengisinya dari screenshot UI favorit / moodboard Figma / daftar produk yang Anda kagumi. Mode desain membacanya setiap kali bekerja — inilah yang membuat hasilnya terasa seperti selera Anda, bukan rata-rata AI.
 
 ## Dua cara memakai
 
