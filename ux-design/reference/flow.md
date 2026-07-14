@@ -30,6 +30,7 @@ Then run design-system discovery (see SKILL.md rule 1) and report what you found
 
 ## Stage 3 — Hi-fi
 
+- **Before designing**: read `anti-slop.md` + taste profile (`~/.claude/design-taste.md` if present). Before presenting: run the hard-ban sweep, the category-reflex test, and name the signature element. A hi-fi without a nameable signature element is not done.
 - Apply the project's design system: real components (imported via key, instance + override), tokens for every color/spacing/type value.
 - Cover all states designed in Stage 2, plus interaction states (hover, focus, pressed, disabled).
 - Realistic content — real-sounding names, plausible numbers, correct language. Never lorem ipsum.

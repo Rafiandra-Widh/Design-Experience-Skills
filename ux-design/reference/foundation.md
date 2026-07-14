@@ -8,6 +8,13 @@ Create token foundations from scratch, or audit/clean up an existing set.
 - Target format: Figma variables, CSS custom properties, Tailwind config, JSON (W3C design tokens)? Default: match what the project already uses.
 - Brand seed: existing brand color(s)? Light/dark or single theme?
 
+## Anti-slop for foundations
+
+- Write the **physical-scene sentence** (who, where, what light, what mood — see `anti-slop.md`) before choosing dark/light and the color strategy; the sentence must force the decision.
+- **No cream/sand/beige body default** for "warm" briefs, and no reflexive warm/cool tinting — neutrals tint toward the brand's own hue (0.005–0.015 chroma) or stay chroma-0. Warmth lives in accent, type, and imagery.
+- Palette must come from the brand + scene, never from the product category (category-reflex test applies to tokens too).
+- Consult the taste profile (`~/.claude/design-taste.md`) for typography leanings, radius/shape language, and density defaults.
+
 ## Token architecture (two layers minimum)
 
 1. **Primitives** — raw values, named by scale, never used directly in designs: `blue-500`, `space-4`, `font-size-lg`.

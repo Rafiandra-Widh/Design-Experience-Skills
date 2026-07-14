@@ -18,6 +18,7 @@ Ask for the design's intent first if not obvious: who is it for, what is the pri
 4. **Typography & content** — Clear type scale (not 7 near-identical sizes)? Line length 45–75ch? Labels action-oriented and unambiguous? Realistic content?
 5. **Accessibility** — Text contrast ≥ 4.5:1 (3:1 for large text), non-text contrast ≥ 3:1, touch targets ≥ 44px, color never the only signal, visible focus states.
 6. **UX heuristics** (Nielsen) — visibility of status, match with real world, user control/undo, error prevention, recognition over recall, flexibility, minimalist design, good error messages, help.
+7. **AI-slop test** (see `anti-slop.md`) — does any hard ban appear (side-stripe, gradient text, identical card grids, eyebrow/numbered scaffolding, cream default…)? Could the theme+palette be guessed from the category alone? Is there a nameable signature element, or is it template-average? If a taste profile exists, does the design contradict its hard-nos?
 
 ## Output format
 

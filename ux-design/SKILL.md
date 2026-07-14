@@ -37,3 +37,4 @@ Read the mode's reference file BEFORE doing any design work. If the user passed 
 4. **Ask before assuming.** Every mode starts with a short intake (see each reference). Never invent target users, brand constraints, or platform.
 5. **Respond in the user's language.** Deliverables and explanations follow the language the user writes in (Indonesian ↔ English).
 6. **Accessibility is not optional.** Any color/type decision must pass WCAG AA contrast; any interactive element ≥ 44×44 (mobile) / 24×24 (desktop) target size.
+7. **Anti-slop before any visual output.** Read `reference/anti-slop.md` AND the personal taste profile `~/.claude/design-taste.md` (if present) before producing explore boards, hi-fi, or foundations. Hard bans are match-and-refuse; every hi-fi must name its signature element.

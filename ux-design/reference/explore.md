@@ -9,6 +9,12 @@ Generate genuinely distinct design directions for one brief — different souls,
 - How many directions? Default **3**.
 - Output medium: Figma frames, HTML artifact (side-by-side), or written concept board?
 
+## Anti-slop gate (before presenting directions)
+
+- Read `anti-slop.md` + taste profile (`~/.claude/design-taste.md` if present) BEFORE generating directions.
+- Every direction must pass the **category-reflex test** (both altitudes) — state the result per direction ("bukan jawaban refleks kategori karena…").
+- If a taste profile exists, each direction states its relationship: *mengikuti profil* or *sengaja menantang profil* + alasan. At least one direction should follow, at least one should challenge.
+
 ## Rules for distinctness
 
 Each direction must differ on at least 3 of these axes — otherwise it's a variation, not a direction:
