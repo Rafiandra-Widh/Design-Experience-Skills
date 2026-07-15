@@ -24,13 +24,61 @@ Lima skill Claude Code untuk alur kerja UI/UX lengkap: riset → desain → moti
 /ux-design critique
 ```
 
-**B. Bahasa natural** — skill terpicu otomatis dari kalimat biasa:
-- "review desain ini dong" → ux-design (critique)
-- "buatkan interview guide untuk riset app kasir" → ux-research (plan)
-- "siapkan spek developer dari frame ini" → ux-handoff (spec)
-- "gimana bahasa profesionalnya: 'tombolnya gak keliatan jadi gak tau itu primary'" → ux-voice (quick)
-- "sambungkan frame-frame ini jadi prototype yang bisa diklik" → ux-motion (prototype)
-- "cek animasi/transisi di app ini, kok terasa aneh" → ux-motion (audit)
+**B. Bahasa natural** — skill terpicu otomatis dari kalimat biasa. Tidak perlu hafal nama skill atau mode; cukup tulis niatnya. Daftar lengkap kata kunci pemicu per skill ada di bagian berikutnya.
+
+## Kata kunci pemicu & contoh pemakaian per skill
+
+Claude mencocokkan *niat* kalimatmu, bukan kata persis — kata-kata di bawah adalah contoh yang paling andal memicu skill yang benar. Kalau ragu skill mana yang terpicu, pakai perintah eksplisit `/nama-skill mode`.
+
+### 🎨 ux-design — mendesain & mengkritik visual
+
+- **Kata pemicu**: "desain…", "rancang…", "bikin screen/halaman…", "review desain", "kritik tampilan", "audit visual", "eksplorasi arah visual", "moodboard", "alternatif desain", "buat design token", "fondasi visual", "type scale"
+- **Contoh kalimat** → mode yang terpicu:
+  - "rancang halaman onboarding untuk app kasir, mobile" → `flow` (intake → user flow → wireframe → hi-fi, ada checkpoint persetujuan di tiap tahap)
+  - "review desain ini dong" + URL frame/screenshot → `critique`
+  - "kasih 3 arah visual buat landing page kopi ini" → `explore`
+  - "rapikan token warna & spacing file ini" → `foundation`
+- **Siapkan**: brief singkat (siapa user, platform) untuk flow; URL frame ber-`node-id` untuk critique (klik kanan frame di Figma → Copy link).
+
+### 🔍 ux-research — riset pengguna
+
+- **Kata pemicu**: "riset…", "wawancara / interview guide", "usability test / uji kegunaan", "screener", "sintesis", "olah transkrip", "analisis hasil interview", "persona", "journey map", "JTBD", "benchmark", "riset kompetitor", "audit aksesibilitas", "cek WCAG", "a11y"
+- **Contoh kalimat** → mode:
+  - "buatkan interview guide untuk riset app kasir" → `plan`
+  - "ini 5 transkrip interview, tarik insight-nya" → `synthesize`
+  - "bikin persona dan journey map dari hasil sintesis kemarin" → `artifacts`
+  - "bandingkan pola checkout Tokopedia vs Shopee" → `benchmark`
+  - "audit aksesibilitas halaman ini" + URL → `a11y`
+- **Siapkan**: konteks produk + keputusan yang mau didukung (plan); paste transkrip atau path foldernya (synthesize).
+
+### 📦 ux-handoff — serah terima ke developer
+
+- **Kata pemicu**: "handoff", "serah terima", "spek untuk dev", "spesifikasi frame ini", "dokumentasi komponen", "anotasi", "redline", "catatan interaksi", "cek kesiapan frame", "audit sebelum handoff"
+- **Contoh kalimat** → mode:
+  - "siapkan spek developer dari frame ini" + URL → `spec`
+  - "cek dulu frame ini siap di-handoff atau belum" + URL → `readiness`
+  - "tulis anotasi untuk dev di frame checkout" + URL → `annotate` (menulis ke Figma Dev Mode, selalu konfirmasi dulu)
+  - "buat dokumentasi komponen Button ini" + URL → `component-doc`
+- **Siapkan**: URL frame ber-`node-id` — semua angka diambil dari data Figma asli, bukan tebakan visual.
+
+### 🗣️ ux-voice — bahasa profesional product design
+
+- **Kata pemicu**: "terjemahkan ke bahasa profesional", "gimana bahasa profesionalnya…", "rapikan feedback ini", "gimana senior designer bilang ini", "jadikan design critique", "latih aku ngomong kayak senior"
+- **Contoh kalimat** → mode:
+  - "gimana bahasa profesionalnya: 'tombolnya gak keliatan jadi gak tau itu primary'" → `quick` (terjemahan 🇮🇩+🇬🇧 + prinsip)
+  - "rapikan feedback ini untuk 3 audiens: designer, dev, stakeholder" → `full`
+  - "jadikan kalimat ini design critique formal" → `critique`
+  - "latih aku menyampaikan temuan kayak senior" → `coach`
+- **Siapkan**: cukup kalimat awamnya — boleh beberapa sekaligus (di-batch per kalimat). Substansi observasimu tidak pernah diubah, hanya registernya.
+
+### 🎬 ux-motion — prototype & motion interaction
+
+- **Kata pemicu**: "prototype", "sambungkan frame", "bikin bisa diklik", "smart animate", "cek motion", "audit animasi/transisi", "transisinya kok aneh", "usulkan motion", "animasi apa yang cocok", "biar terasa hidup"
+- **Contoh kalimat** → mode:
+  - "sambungkan frame-frame ini jadi prototype yang bisa diklik" → `prototype` (reactions ditulis ke Figma; kamu verifikasi rasa lewat tombol ▶ Play)
+  - "cek animasi di app ini, kok terasa aneh" + URL Figma/web/path video → `audit`
+  - "usulkan motion buat layar feed ini biar terasa hidup" + URL → `propose` (spec + keyframes di Figma + demo HTML)
+- **Siapkan**: daftar koneksi frame A → frame B (prototype); URL Figma / URL web live / path rekaman (audit). Catatan jujur: Claude memverifikasi wiring & nilai animasi lewat data, tapi *rasa* motion tetap kamu cek dengan menekan Play — screenshot tidak menampilkan gerakan.
 
 ## Peta 20 mode — kapan pakai apa, dapat apa, di mana
 
