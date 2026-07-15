@@ -1,6 +1,6 @@
-# Panduan Skill UX — ux-design · ux-research · ux-handoff
+# Panduan Skill UX — ux-design · ux-research · ux-handoff · ux-voice
 
-Tiga skill Claude Code untuk alur kerja UI/UX lengkap: riset → desain → serah terima ke developer. Generik — bisa dipakai di proyek dan design system apa pun.
+Empat skill Claude Code untuk alur kerja UI/UX lengkap: riset → desain → komunikasi → serah terima ke developer. Generik — bisa dipakai di proyek dan design system apa pun.
 
 ## Instalasi (untuk mesin baru)
 
@@ -11,8 +11,8 @@ Tiga skill Claude Code untuk alur kerja UI/UX lengkap: riset → desain → sera
    git clone https://github.com/Rafiandra-Widh/Design-Experience-Skills.git
    cp -R Design-Experience-Skills/ux-* ~/.claude/skills/
    ```
-   (Atau salin manual 3 folder `ux-design/ ux-research/ ux-handoff/`.) Tidak ada setting lain — skill terdeteksi otomatis di sesi berikutnya.
-4. Cek: ketik `/ux-` di Claude Code — ketiga skill muncul di autocomplete.
+   (Atau salin manual 4 folder `ux-design/ ux-research/ ux-handoff/ ux-voice/`.) Tidak ada setting lain — skill terdeteksi otomatis di sesi berikutnya.
+4. Cek: ketik `/ux-` di Claude Code — keempat skill muncul di autocomplete.
 5. *(Opsional tapi sangat disarankan)* **Isi taste profile** — salin `design-taste.template.md` ke `~/.claude/design-taste.md`, lalu minta Claude mengisinya dari screenshot UI favorit / moodboard Figma / daftar produk yang Anda kagumi. Mode desain membacanya setiap kali bekerja — inilah yang membuat hasilnya terasa seperti selera Anda, bukan rata-rata AI.
 
 ## Dua cara memakai
@@ -28,8 +28,9 @@ Tiga skill Claude Code untuk alur kerja UI/UX lengkap: riset → desain → sera
 - "review desain ini dong" → ux-design (critique)
 - "buatkan interview guide untuk riset app kasir" → ux-research (plan)
 - "siapkan spek developer dari frame ini" → ux-handoff (spec)
+- "gimana bahasa profesionalnya: 'tombolnya gak keliatan jadi gak tau itu primary'" → ux-voice (quick)
 
-## Peta 13 mode — kapan pakai apa, dapat apa, di mana
+## Peta 17 mode — kapan pakai apa, dapat apa, di mana
 
 | Perintah | Kapan dipakai | Siapkan | Output & lokasi |
 |---|---|---|---|
@@ -46,6 +47,10 @@ Tiga skill Claude Code untuk alur kerja UI/UX lengkap: riset → desain → sera
 | `/ux-handoff annotate` | Menulis catatan untuk dev di Figma | URL frame (idealnya sudah lolos readiness) | **Anotasi Dev Mode** kategori UX & Development + marker |
 | `/ux-handoff spec` | Spek developer dari desain | URL frame ber-`node-id` | Spek lengkap → file .md |
 | `/ux-handoff component-doc` | Dokumentasi komponen design system | URL komponen di Figma | Dokumentasi → file .md |
+| `/ux-voice` (quick) | Kalimat awam soal masalah UI → kalimat profesional | Kalimat awamnya saja | Terjemahan 🇮🇩+🇬🇧 + prinsip UX → chat |
+| `/ux-voice full` | Butuh semua varian untuk beberapa channel | Kalimat awam | + 3 tone (designer/dev/stakeholder) + format critique → chat |
+| `/ux-voice critique` | Observasi mau jadi design critique formal | Kalimat awam (+ konteks screen bila ada) | Observasi → Dampak → Rekomendasi → Severity → chat |
+| `/ux-voice coach` | Latihan bicara seperti senior designer | Kalimat awam | Terjemahan + bedah kenapa + 1 latihan → chat |
 
 **Konvensi lokasi output**: visual → Figma (page proyek) · dokumen → folder proyek (mis. `~/nama-proyek-ux/`) · ringkasan → chat · halaman review → artifact (link bisa dibagikan).
 
@@ -84,6 +89,7 @@ Claude bertanya intake → user flow (disetujui dulu) → wireframe (disetujui) 
 - Data riset tidak pernah dikarang; artefak tanpa data diberi label "proto — perlu divalidasi".
 - Anotasi Figma: bahasa sederhana, terpisah kategori **UX** (maksud) dan **Development** (aturan teknis).
 - Menulis ke Figma selalu lewat konfirmasi, di container terpisah yang terkunci — desain asli tidak disentuh.
+- ux-voice **tidak pernah mengubah substansi observasi** — hanya menaikkan register; kalau observasinya lemah secara UX, dikatakan terang-terangan, bukan dikoreksi diam-diam.
 
 ---
 *Dibangun & diuji penuh 14 Jul 2026 (demo: proyek Masakmemasak). Untuk menambah mode: tambah file di `reference/` + satu baris routing di `SKILL.md` skill terkait.*
