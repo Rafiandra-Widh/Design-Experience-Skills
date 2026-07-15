@@ -1,6 +1,6 @@
-# Panduan Skill UX — ux-design · ux-research · ux-handoff · ux-voice
+# Panduan Skill UX — ux-design · ux-research · ux-handoff · ux-voice · ux-motion
 
-Empat skill Claude Code untuk alur kerja UI/UX lengkap: riset → desain → komunikasi → serah terima ke developer. Generik — bisa dipakai di proyek dan design system apa pun.
+Lima skill Claude Code untuk alur kerja UI/UX lengkap: riset → desain → motion & prototype → komunikasi → serah terima ke developer. Generik — bisa dipakai di proyek dan design system apa pun.
 
 ## Instalasi (untuk mesin baru)
 
@@ -11,8 +11,8 @@ Empat skill Claude Code untuk alur kerja UI/UX lengkap: riset → desain → kom
    git clone https://github.com/Rafiandra-Widh/Design-Experience-Skills.git
    cp -R Design-Experience-Skills/ux-* ~/.claude/skills/
    ```
-   (Atau salin manual 4 folder `ux-design/ ux-research/ ux-handoff/ ux-voice/`.) Tidak ada setting lain — skill terdeteksi otomatis di sesi berikutnya.
-4. Cek: ketik `/ux-` di Claude Code — keempat skill muncul di autocomplete.
+   (Atau salin manual 5 folder `ux-design/ ux-research/ ux-handoff/ ux-voice/ ux-motion/`.) Tidak ada setting lain — skill terdeteksi otomatis di sesi berikutnya.
+4. Cek: ketik `/ux-` di Claude Code — kelima skill muncul di autocomplete.
 5. *(Opsional tapi sangat disarankan)* **Isi taste profile** — salin `design-taste.template.md` ke `~/.claude/design-taste.md`, lalu minta Claude mengisinya dari screenshot UI favorit / moodboard Figma / daftar produk yang Anda kagumi. Mode desain membacanya setiap kali bekerja — inilah yang membuat hasilnya terasa seperti selera Anda, bukan rata-rata AI.
 
 ## Dua cara memakai
@@ -29,8 +29,10 @@ Empat skill Claude Code untuk alur kerja UI/UX lengkap: riset → desain → kom
 - "buatkan interview guide untuk riset app kasir" → ux-research (plan)
 - "siapkan spek developer dari frame ini" → ux-handoff (spec)
 - "gimana bahasa profesionalnya: 'tombolnya gak keliatan jadi gak tau itu primary'" → ux-voice (quick)
+- "sambungkan frame-frame ini jadi prototype yang bisa diklik" → ux-motion (prototype)
+- "cek animasi/transisi di app ini, kok terasa aneh" → ux-motion (audit)
 
-## Peta 17 mode — kapan pakai apa, dapat apa, di mana
+## Peta 20 mode — kapan pakai apa, dapat apa, di mana
 
 | Perintah | Kapan dipakai | Siapkan | Output & lokasi |
 |---|---|---|---|
@@ -51,6 +53,9 @@ Empat skill Claude Code untuk alur kerja UI/UX lengkap: riset → desain → kom
 | `/ux-voice full` | Butuh semua varian untuk beberapa channel | Kalimat awam | + 3 tone (designer/dev/stakeholder) + format critique → chat |
 | `/ux-voice critique` | Observasi mau jadi design critique formal | Kalimat awam (+ konteks screen bila ada) | Observasi → Dampak → Rekomendasi → Severity → chat |
 | `/ux-voice coach` | Latihan bicara seperti senior designer | Kalimat awam | Terjemahan + bedah kenapa + 1 latihan → chat |
+| `/ux-motion prototype` | Merangkai alur klik antar frame Figma | Daftar koneksi (frame A → frame B) atau user flow .md | **Reactions terpasang di Figma** + tabel koneksi → chat |
+| `/ux-motion audit` | Mengecek motion/interaksi yang sudah ada | URL Figma / URL web live / path video-GIF | Temuan berperingkat severity + nilai perbaikan konkret → chat/.md |
+| `/ux-motion propose` | Desain statis → usulan motion interaction | URL frame Figma / screenshot + konteks produk | Motion spec .md + **keyframes/prototype di Figma** + demo HTML |
 
 **Konvensi lokasi output**: visual → Figma (page proyek) · dokumen → folder proyek (mis. `~/nama-proyek-ux/`) · ringkasan → chat · halaman review → artifact (link bisa dibagikan).
 
@@ -90,6 +95,7 @@ Claude bertanya intake → user flow (disetujui dulu) → wireframe (disetujui) 
 - Anotasi Figma: bahasa sederhana, terpisah kategori **UX** (maksud) dan **Development** (aturan teknis).
 - Menulis ke Figma selalu lewat konfirmasi, di container terpisah yang terkunci — desain asli tidak disentuh.
 - ux-voice **tidak pernah mengubah substansi observasi** — hanya menaikkan register; kalau observasinya lemah secara UX, dikatakan terang-terangan, bukan dikoreksi diam-diam.
+- ux-motion: setiap animasi wajib punya purpose (feedback/orientation/status/delight, delight maksimal 1 signature moment per flow), selalu menyertakan perilaku `prefers-reduced-motion`, dan nilai durasi/easing selalu konkret — screenshot tidak pernah dipakai sebagai bukti motion (verifikasi via readback data + kamu menekan Play).
 
 ---
 *Dibangun & diuji penuh 14 Jul 2026 (demo: proyek Masakmemasak). Untuk menambah mode: tambah file di `reference/` + satu baris routing di `SKILL.md` skill terkait.*
