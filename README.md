@@ -1,6 +1,6 @@
-# Panduan Skill UX — ux-design · ux-research · ux-handoff · ux-voice · ux-motion
+# Panduan Skill UX — ux-design · ux-research · ux-handoff · ux-voice · ux-motion · ux-workshop
 
-Lima skill Claude Code untuk alur kerja UI/UX lengkap: riset → desain → motion & prototype → komunikasi → serah terima ke developer. Generik — bisa dipakai di proyek dan design system apa pun.
+Enam skill Claude Code untuk alur kerja UI/UX lengkap: riset → ideasi & keputusan → desain → motion & prototype → komunikasi → serah terima ke developer. Generik — bisa dipakai di proyek dan design system apa pun.
 
 ## Instalasi (untuk mesin baru)
 
@@ -11,8 +11,8 @@ Lima skill Claude Code untuk alur kerja UI/UX lengkap: riset → desain → moti
    git clone https://github.com/Rafiandra-Widh/Design-Experience-Skills.git
    cp -R Design-Experience-Skills/ux-* ~/.claude/skills/
    ```
-   (Atau salin manual 5 folder `ux-design/ ux-research/ ux-handoff/ ux-voice/ ux-motion/`.) Tidak ada setting lain — skill terdeteksi otomatis di sesi berikutnya.
-4. Cek: ketik `/ux-` di Claude Code — kelima skill muncul di autocomplete.
+   (Atau salin manual 6 folder `ux-design/ ux-research/ ux-handoff/ ux-voice/ ux-motion/ ux-workshop/`.) Tidak ada setting lain — skill terdeteksi otomatis di sesi berikutnya.
+4. Cek: ketik `/ux-` di Claude Code — keenam skill muncul di autocomplete.
 5. *(Opsional tapi sangat disarankan)* **Isi taste profile** — salin `design-taste.template.md` ke `~/.claude/design-taste.md`, lalu minta Claude mengisinya dari screenshot UI favorit / moodboard Figma / daftar produk yang Anda kagumi. Mode desain membacanya setiap kali bekerja — inilah yang membuat hasilnya terasa seperti selera Anda, bukan rata-rata AI.
 
 ## Dua cara memakai
@@ -80,7 +80,17 @@ Claude mencocokkan *niat* kalimatmu, bukan kata persis — kata-kata di bawah ad
   - "usulkan motion buat layar feed ini biar terasa hidup" + URL → `propose` (spec + keyframes di Figma + demo HTML)
 - **Siapkan**: daftar koneksi frame A → frame B (prototype); URL Figma / URL web live / path rekaman (audit). Catatan jujur: Claude memverifikasi wiring & nilai animasi lewat data, tapi *rasa* motion tetap kamu cek dengan menekan Play — screenshot tidak menampilkan gerakan.
 
-## Peta 20 mode — kapan pakai apa, dapat apa, di mana
+### 🧠 ux-workshop — brainstorming, workshop & sintesis keputusan
+
+- **Kata pemicu**: "brainstorm / ideasi / cari ide", "aku mentok", "rancang workshop", "bikin agenda sesi", "lightning decision jam", "kelompokkan ide-ide ini", "affinity mapping", "bantu milih / prioritas", "sintesis hasil workshop", "metode apa yang cocok untuk…"
+- **Contoh kalimat** → mode:
+  - "bantu aku brainstorm fitur untuk halaman simpanan" → `ideate` (HMW dulu, lalu metode yang pas; solo pun bisa — Claude jadi sparring partner, idenya berlabel)
+  - "rancang workshop 90 menit supaya tim sepakat prioritas Q3" → `workshop` (agenda menit-per-menit + facilitator script + board FigJam template)
+  - "ini stickies hasil sesi kemarin, kelompokkan dan bantu pilih" + URL FigJam → `converge` (affinity → 2×2 → keputusan, ditulis balik ke board)
+  - "tim ku suka debat muter-muter, metode apa yang cocok?" → `method-finder`
+- **Siapkan**: topik/masalah (ideate); tujuan sesi + durasi + jumlah peserta (workshop); URL board FigJam atau paste ide (converge).
+
+## Peta 24 mode — kapan pakai apa, dapat apa, di mana
 
 | Perintah | Kapan dipakai | Siapkan | Output & lokasi |
 |---|---|---|---|
@@ -104,6 +114,10 @@ Claude mencocokkan *niat* kalimatmu, bukan kata persis — kata-kata di bawah ad
 | `/ux-motion prototype` | Merangkai alur klik antar frame Figma | Daftar koneksi (frame A → frame B) atau user flow .md | **Reactions di Figma** — di komponen spesifik (via invisible hotspot bila tombol ada di dalam instance) atau klik-di-mana-pun untuk walkthrough + tabel koneksi → chat |
 | `/ux-motion audit` | Mengecek motion/interaksi yang sudah ada | URL Figma / URL web live / path video-GIF | Temuan berperingkat severity + nilai perbaikan konkret → chat/.md |
 | `/ux-motion propose` | Desain statis → usulan motion interaction | URL frame Figma / screenshot + konteks produk | Motion spec .md + **keyframes/prototype di Figma** + demo HTML |
+| `/ux-workshop ideate` | Brainstorming difasilitasi (solo/tim) | Masalah/topik (diubah jadi HMW dulu) | Daftar ide → **stickies FigJam** dan/atau .md |
+| `/ux-workshop workshop` | Merancang paket sesi tim | Tujuan + durasi + peserta | Agenda + facilitator script .md + **board FigJam template** |
+| `/ux-workshop converge` | Tumpukan ide/stickies → tema & keputusan | URL board FigJam / paste ide | Affinity + prioritas + keputusan → .md + **section Hasil Sintesis di board** |
+| `/ux-workshop method-finder` | "Metode apa yang cocok untuk situasiku?" | Deskripsi situasi | Rekomendasi metode + alasan + resep singkat → chat |
 
 **Konvensi lokasi output**: visual → Figma (page proyek) · dokumen → folder proyek (mis. `~/nama-proyek-ux/`) · ringkasan → chat · halaman review → artifact (link bisa dibagikan).
 
@@ -144,6 +158,7 @@ Claude bertanya intake → user flow (disetujui dulu) → wireframe (disetujui) 
 - Menulis ke Figma selalu lewat konfirmasi, di container terpisah yang terkunci — desain asli tidak disentuh.
 - ux-voice **tidak pernah mengubah substansi observasi** — hanya menaikkan register; kalau observasinya lemah secara UX, dikatakan terang-terangan, bukan dikoreksi diam-diam.
 - ux-motion: setiap animasi wajib punya purpose (feedback/orientation/status/delight, delight maksimal 1 signature moment per flow), selalu menyertakan perilaku `prefers-reduced-motion`, dan nilai durasi/easing selalu konkret — screenshot tidak pernah dipakai sebagai bukti motion (verifikasi via readback data + kamu menekan Play).
+- ux-workshop: divergen dan konvergen tidak pernah dicampur dalam satu blok; ide Claude selalu berlabel `[Claude]` dan maksimal ±sepertiga; affinity transparan (ide tak terkelompok masuk "Parkir", tidak dibuang); **vote tidak pernah dikarang** — penempatan tanpa vote dinyatakan sebagai penilaian Claude yang boleh dibantah.
 
 ---
 *Dibangun & diuji penuh 14 Jul 2026 (demo: proyek Masakmemasak). Untuk menambah mode: tambah file di `reference/` + satu baris routing di `SKILL.md` skill terkait.*
