@@ -101,7 +101,7 @@ Claude mencocokkan *niat* kalimatmu, bukan kata persis — kata-kata di bawah ad
 | `/ux-voice full` | Butuh semua varian untuk beberapa channel | Kalimat awam | + 3 tone (designer/dev/stakeholder) + format critique → chat |
 | `/ux-voice critique` | Observasi mau jadi design critique formal | Kalimat awam (+ konteks screen bila ada) | Observasi → Dampak → Rekomendasi → Severity → chat |
 | `/ux-voice coach` | Latihan bicara seperti senior designer | Kalimat awam | Terjemahan + bedah kenapa + 1 latihan → chat |
-| `/ux-motion prototype` | Merangkai alur klik antar frame Figma | Daftar koneksi (frame A → frame B) atau user flow .md | **Reactions terpasang di Figma** + tabel koneksi → chat |
+| `/ux-motion prototype` | Merangkai alur klik antar frame Figma | Daftar koneksi (frame A → frame B) atau user flow .md | **Reactions di Figma** — di komponen spesifik (via invisible hotspot bila tombol ada di dalam instance) atau klik-di-mana-pun untuk walkthrough + tabel koneksi → chat |
 | `/ux-motion audit` | Mengecek motion/interaksi yang sudah ada | URL Figma / URL web live / path video-GIF | Temuan berperingkat severity + nilai perbaikan konkret → chat/.md |
 | `/ux-motion propose` | Desain statis → usulan motion interaction | URL frame Figma / screenshot + konteks produk | Motion spec .md + **keyframes/prototype di Figma** + demo HTML |
 
