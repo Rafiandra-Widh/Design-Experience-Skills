@@ -9,7 +9,8 @@ description: >
   research — competitor analysis, benchmark, heuristic evaluation ("benchmark",
   "riset kompetitor"); or audit accessibility against WCAG ("audit aksesibilitas", "cek WCAG",
   "a11y"). Modes: plan, synthesize, artifacts, benchmark, a11y.
-  Not for designing screens (use ux-design) or market/business research unrelated to users.
+  Not for designing screens (use ux-design), product/business metrics & KPI/OKR (use ux-metrics),
+  or market/business research unrelated to users.
 user-invocable: true
 argument-hint: "[plan|synthesize|artifacts|benchmark|a11y]"
 ---

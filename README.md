@@ -1,6 +1,6 @@
-# Panduan Skill UX — ux-design · ux-research · ux-handoff · ux-voice · ux-motion · ux-workshop
+# Panduan Skill UX — ux-design · ux-research · ux-handoff · ux-voice · ux-motion · ux-workshop · ux-metrics
 
-Enam skill Claude Code untuk alur kerja UI/UX lengkap: riset → ideasi & keputusan → desain → motion & prototype → komunikasi → serah terima ke developer. Generik — bisa dipakai di proyek dan design system apa pun.
+Tujuh skill Claude Code untuk alur kerja UI/UX lengkap: riset → ideasi & keputusan → desain → motion & prototype → komunikasi → serah terima ke developer → pengukuran & OKR. Generik — bisa dipakai di proyek dan design system apa pun.
 
 ## Instalasi (untuk mesin baru)
 
@@ -11,8 +11,8 @@ Enam skill Claude Code untuk alur kerja UI/UX lengkap: riset → ideasi & keputu
    git clone https://github.com/Rafiandra-Widh/Design-Experience-Skills.git
    cp -R Design-Experience-Skills/ux-* ~/.claude/skills/
    ```
-   (Atau salin manual 6 folder `ux-design/ ux-research/ ux-handoff/ ux-voice/ ux-motion/ ux-workshop/`.) Tidak ada setting lain — skill terdeteksi otomatis di sesi berikutnya.
-4. Cek: ketik `/ux-` di Claude Code — keenam skill muncul di autocomplete.
+   (Atau salin manual 7 folder `ux-design/ ux-research/ ux-handoff/ ux-voice/ ux-motion/ ux-workshop/ ux-metrics/`.) Tidak ada setting lain — skill terdeteksi otomatis di sesi berikutnya.
+4. Cek: ketik `/ux-` di Claude Code — ketujuh skill muncul di autocomplete.
 5. *(Opsional tapi sangat disarankan)* **Isi taste profile** — salin `design-taste.template.md` ke `~/.claude/design-taste.md`, lalu minta Claude mengisinya dari screenshot UI favorit / moodboard Figma / daftar produk yang Anda kagumi. Mode desain membacanya setiap kali bekerja — inilah yang membuat hasilnya terasa seperti selera Anda, bukan rata-rata AI.
 
 ## Dua cara memakai
@@ -90,7 +90,17 @@ Claude mencocokkan *niat* kalimatmu, bukan kata persis — kata-kata di bawah ad
   - "tim ku suka debat muter-muter, metode apa yang cocok?" → `method-finder`
 - **Siapkan**: topik/masalah (ideate); tujuan sesi + durasi + jumlah peserta (workshop); URL board FigJam atau paste ide (converge).
 
-## Peta 24 mode — kapan pakai apa, dapat apa, di mana
+### 📊 ux-metrics — UX metric, dampak bisnis & KPI/OKR
+
+- **Kata pemicu**: "metric apa yang cocok", "ukuran keberhasilan", "success metrics", "HEART", "hubungkan ke business metric", "dampak bisnis", "metric tree", "north star", "cara ngukur", "measurement plan", "instrumentasi", "baseline", "turunkan OKR", "KPI tim desain", "key result"
+- **Contoh kalimat** → mode:
+  - "metric apa yang cocok buat fitur onboarding app kasir?" → `identify` (HEART + Goals-Signals-Metrics → 1 metric primer + sekunder + guardrail)
+  - "hubungkan task success checkout ke revenue dong" → `connect` (metric tree dengan rantai hipotesis berlabel bukti + narasi stakeholder)
+  - "gimana cara ngukur adoption rate fitur ini?" → `measure` (formula operasional + event/survey yang dibutuhkan + baseline & target)
+  - "turunkan OKR tim desain dari OKR perusahaan Q3 ini" → `okr` (level lead: Objective + KR berbasis metric + guardrail + KPI berkelanjutan)
+- **Siapkan**: goal produk/fitur & keputusan yang mau didukung (identify); business metric yang penting bagi stakeholder (connect); akses data yang ada — analytics/survey (measure); OKR perusahaan/departemen di atasnya, disalin persis (okr). Catatan jujur: baseline & benchmark tidak pernah dikarang — kalau datanya belum ada, langkah pertamanya "ukur baseline dulu".
+
+## Peta 28 mode — kapan pakai apa, dapat apa, di mana
 
 | Perintah | Kapan dipakai | Siapkan | Output & lokasi |
 |---|---|---|---|
@@ -118,6 +128,10 @@ Claude mencocokkan *niat* kalimatmu, bukan kata persis — kata-kata di bawah ad
 | `/ux-workshop workshop` | Merancang paket sesi tim | Tujuan + durasi + peserta | Agenda + facilitator script .md + **board FigJam template** |
 | `/ux-workshop converge` | Tumpukan ide/stickies → tema & keputusan | URL board FigJam / paste ide | Affinity + prioritas + keputusan → .md + **section Hasil Sintesis di board** |
 | `/ux-workshop method-finder` | "Metode apa yang cocok untuk situasiku?" | Deskripsi situasi | Rekomendasi metode + alasan + resep singkat → chat |
+| `/ux-metrics identify` | Menentukan UX metric untuk produk/fitur | Goal produk/fitur + keputusan yang mau didukung | Tabel GSM + metric primer/sekunder/guardrail → chat/.md |
+| `/ux-metrics connect` | Memetakan UX metric → business metric | Business metric stakeholder + metric hasil identify | Metric tree (mermaid) berlabel bukti + narasi stakeholder → .md + **FigJam** (opsional) |
+| `/ux-metrics measure` | Rencana pengukuran metric | Metric yang mau diukur + akses data yang ada | Measurement plan: formula, event/survey, baseline, target, cadence → file .md |
+| `/ux-metrics okr` | Lead: turunkan KPI/OKR tim desain | OKR perusahaan/departemen + metric tim | Objective + KR (baseline→target) + guardrail + tabel KPI → file .md |
 
 **Konvensi lokasi output**: visual → Figma (page proyek) · dokumen → folder proyek (mis. `~/nama-proyek-ux/`) · ringkasan → chat · halaman review → artifact (link bisa dibagikan).
 
@@ -159,6 +173,7 @@ Claude bertanya intake → user flow (disetujui dulu) → wireframe (disetujui) 
 - ux-voice **tidak pernah mengubah substansi observasi** — hanya menaikkan register; kalau observasinya lemah secara UX, dikatakan terang-terangan, bukan dikoreksi diam-diam.
 - ux-motion: setiap animasi wajib punya purpose (feedback/orientation/status/delight, delight maksimal 1 signature moment per flow), selalu menyertakan perilaku `prefers-reduced-motion`, dan nilai durasi/easing selalu konkret — screenshot tidak pernah dipakai sebagai bukti motion (verifikasi via readback data + kamu menekan Play).
 - ux-workshop: divergen dan konvergen tidak pernah dicampur dalam satu blok; ide Claude selalu berlabel `[Claude]` dan maksimal ±sepertiga; affinity transparan (ide tak terkelompok masuk "Parkir", tidak dibuang); **vote tidak pernah dikarang** — penempatan tanpa vote dinyatakan sebagai penilaian Claude yang boleh dibantah.
+- ux-metrics: **angka tidak pernah dikarang** — baseline diukur, bukan ditebak; target awal & benchmark tanpa sumber dilabeli "asumsi — perlu divalidasi"; hubungan UX→business selalu ditulis sebagai hipotesis berlabel bukti (terbukti/hipotesis/asumsi), bukan fakta; metric & KR wajib outcome (perubahan perilaku/hasil), bukan output (deliverable).
 
 ---
 *Dibangun & diuji penuh 14 Jul 2026 (demo: proyek Masakmemasak). Untuk menambah mode: tambah file di `reference/` + satu baris routing di `SKILL.md` skill terkait.*
