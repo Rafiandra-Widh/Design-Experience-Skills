@@ -1,6 +1,6 @@
-# Panduan Skill UX — ux-design · ux-research · ux-handoff · ux-voice · ux-motion · ux-workshop · ux-metrics
+# Panduan Skill UX — ux-design · ux-research · ux-handoff · ux-voice · ux-motion · ux-workshop · ux-metrics · ux-portfolio
 
-Tujuh skill Claude Code untuk alur kerja UI/UX lengkap: riset → ideasi & keputusan → desain → motion & prototype → komunikasi → serah terima ke developer → pengukuran & OKR. Generik — bisa dipakai di proyek dan design system apa pun.
+Delapan skill Claude Code untuk alur kerja UI/UX lengkap: riset → ideasi & keputusan → desain → motion & prototype → komunikasi → serah terima ke developer → pengukuran & OKR → portfolio & karier. Generik — bisa dipakai di proyek dan design system apa pun.
 
 ## Instalasi (untuk mesin baru)
 
@@ -11,8 +11,8 @@ Tujuh skill Claude Code untuk alur kerja UI/UX lengkap: riset → ideasi & keput
    git clone https://github.com/Rafiandra-Widh/Design-Experience-Skills.git
    cp -R Design-Experience-Skills/ux-* ~/.claude/skills/
    ```
-   (Atau salin manual 7 folder `ux-design/ ux-research/ ux-handoff/ ux-voice/ ux-motion/ ux-workshop/ ux-metrics/`.) Tidak ada setting lain — skill terdeteksi otomatis di sesi berikutnya.
-4. Cek: ketik `/ux-` di Claude Code — ketujuh skill muncul di autocomplete.
+   (Atau salin manual 8 folder `ux-design/ ux-research/ ux-handoff/ ux-voice/ ux-motion/ ux-workshop/ ux-metrics/ ux-portfolio/`.) Tidak ada setting lain — skill terdeteksi otomatis di sesi berikutnya.
+4. Cek: ketik `/ux-` di Claude Code — kedelapan skill muncul di autocomplete.
 5. *(Opsional tapi sangat disarankan)* **Isi taste profile** — salin `design-taste.template.md` ke `~/.claude/design-taste.md`, lalu minta Claude mengisinya dari screenshot UI favorit / moodboard Figma / daftar produk yang Anda kagumi. Mode desain membacanya setiap kali bekerja — inilah yang membuat hasilnya terasa seperti selera Anda, bukan rata-rata AI.
 
 ## Dua cara memakai
@@ -100,7 +100,17 @@ Claude mencocokkan *niat* kalimatmu, bukan kata persis — kata-kata di bawah ad
   - "turunkan OKR tim desain dari OKR perusahaan Q3 ini" → `okr` (level lead: Objective + KR berbasis metric + guardrail + KPI berkelanjutan)
 - **Siapkan**: goal produk/fitur & keputusan yang mau didukung (identify); business metric yang penting bagi stakeholder (connect); akses data yang ada — analytics/survey (measure); OKR perusahaan/departemen di atasnya, disalin persis (okr). Catatan jujur: baseline & benchmark tidak pernah dikarang — kalau datanya belum ada, langkah pertamanya "ukur baseline dulu".
 
-## Peta 28 mode — kapan pakai apa, dapat apa, di mana
+### 💼 ux-portfolio — merancang portfolio UX
+
+- **Kata pemicu**: "susun/rancang portfolio", "proyek mana yang dimasukkan", "table of contents portfolio", "tulis case study", "ubah proyek ini jadi cerita", "storytelling proyek", "deck portfolio", "presentasi interview", "review portfolio ku", "kenapa portfolio ku gak dilirik"
+- **Contoh kalimat** → mode:
+  - "bantu susun portfolio ku untuk lamar senior product designer" → `structure` (skor & pilih 3–5 proyek + urutan + TOC per case study + gap terhadap target role)
+  - "ubah proyek redesign kasir ini jadi case study" + bahan mentah → `case-study` (wawancara menggali keputusan kunci → narasi 3 lapis → .md + preview artifact / draft Figma)
+  - "siapkan deck buat portfolio presentation 30 menit" → `present` (struktur slide + speaker notes + antisipasi pertanyaan panel + latihan Q&A)
+  - "review portfolio ku dong" + URL → `review` (simulasi 3 pembaca: recruiter skim, hiring manager, craft & bahasa — temuan berlokasi + 3 prioritas)
+- **Siapkan**: tujuan (lamar/branding/promosi/mentoring tim) + target role; daftar semua proyek kandidat (structure); bahan mentah proyek apa adanya + peran persismu (case-study); URL portfolio atau paste teks (review). Berlaku juga untuk membina anggota tim — sebutkan levelnya. Catatan jujur: dampak, angka, dan peran tidak pernah dikarang atau digelembungkan; proyek NDA dianonimisasi dengan konfirmasi dulu.
+
+## Peta 32 mode — kapan pakai apa, dapat apa, di mana
 
 | Perintah | Kapan dipakai | Siapkan | Output & lokasi |
 |---|---|---|---|
@@ -132,6 +142,10 @@ Claude mencocokkan *niat* kalimatmu, bukan kata persis — kata-kata di bawah ad
 | `/ux-metrics connect` | Memetakan UX metric → business metric | Business metric stakeholder + metric hasil identify | Metric tree (mermaid) berlabel bukti + narasi stakeholder → .md + **FigJam** (opsional) |
 | `/ux-metrics measure` | Rencana pengukuran metric | Metric yang mau diukur + akses data yang ada | Measurement plan: formula, event/survey, baseline, target, cadence → file .md |
 | `/ux-metrics okr` | Lead: turunkan KPI/OKR tim desain | OKR perusahaan/departemen + metric tim | Objective + KR (baseline→target) + guardrail + tabel KPI → file .md |
+| `/ux-portfolio structure` | Menyusun kerangka portfolio & memilih proyek | Tujuan + target role + daftar semua proyek kandidat | Skor proyek + susunan + TOC per case study + gap → file .md |
+| `/ux-portfolio case-study` | Bahan mentah proyek → narasi case study | Bahan apa adanya + peran persismu + apa yang boleh tampil | Case study 3 lapis → .md + **preview HTML artifact** / draft **Figma** |
+| `/ux-portfolio present` | Deck & persiapan portfolio presentation | Konteks sesi (durasi, panel) + case study sumber | Struktur slide + speaker notes + antisipasi Q&A → .md (+ artifact/Figma) |
+| `/ux-portfolio review` | Audit portfolio/case study existing (juga punya anggota tim) | URL portfolio / paste teks / URL Figma + target role | Skor 3 lapis pembaca + temuan berlokasi + 3 prioritas → chat/.md/artifact |
 
 **Konvensi lokasi output**: visual → Figma (page proyek) · dokumen → folder proyek (mis. `~/nama-proyek-ux/`) · ringkasan → chat · halaman review → artifact (link bisa dibagikan).
 
@@ -174,6 +188,7 @@ Claude bertanya intake → user flow (disetujui dulu) → wireframe (disetujui) 
 - ux-motion: setiap animasi wajib punya purpose (feedback/orientation/status/delight, delight maksimal 1 signature moment per flow), selalu menyertakan perilaku `prefers-reduced-motion`, dan nilai durasi/easing selalu konkret — screenshot tidak pernah dipakai sebagai bukti motion (verifikasi via readback data + kamu menekan Play).
 - ux-workshop: divergen dan konvergen tidak pernah dicampur dalam satu blok; ide Claude selalu berlabel `[Claude]` dan maksimal ±sepertiga; affinity transparan (ide tak terkelompok masuk "Parkir", tidak dibuang); **vote tidak pernah dikarang** — penempatan tanpa vote dinyatakan sebagai penilaian Claude yang boleh dibantah.
 - ux-metrics: **angka tidak pernah dikarang** — baseline diukur, bukan ditebak; target awal & benchmark tanpa sumber dilabeli "asumsi — perlu divalidasi"; hubungan UX→business selalu ditulis sebagai hipotesis berlabel bukti (terbukti/hipotesis/asumsi), bukan fakta; metric & KR wajib outcome (perubahan perilaku/hasil), bukan output (deliverable).
+- ux-portfolio: **cerita tidak pernah digelembungkan** — dampak, angka, dan peran ditulis jujur (dampak tanpa data pakai framing jujur, bukan angka kira-kira; atribusi "saya" vs "kami" eksplisit); proyek NDA/pemerintah dianonimisasi dengan konfirmasi dulu; review selalu lewat simulasi 3 lapis pembaca (recruiter skim → hiring manager → craft & bahasa) dengan temuan berlokasi spesifik.
 
 ---
 *Dibangun & diuji penuh 14 Jul 2026 (demo: proyek Masakmemasak). Untuk menambah mode: tambah file di `reference/` + satu baris routing di `SKILL.md` skill terkait.*
