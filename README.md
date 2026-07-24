@@ -53,13 +53,14 @@ Claude mencocokkan *niat* kalimatmu, bukan kata persis — kata-kata di bawah ad
 
 ### 📦 ux-handoff — serah terima ke developer
 
-- **Kata pemicu**: "handoff", "serah terima", "spek untuk dev", "spesifikasi frame ini", "dokumentasi komponen", "anotasi", "redline", "catatan interaksi", "cek kesiapan frame", "audit sebelum handoff"
+- **Kata pemicu**: "handoff", "serah terima", "spek untuk dev", "spesifikasi frame ini", "dokumentasi komponen", "anotasi", "redline", "catatan interaksi", "cek kesiapan frame", "audit sebelum handoff", "pixel perfect", "cek implementasi vs figma", "design QA", "audit hasil coding"
 - **Contoh kalimat** → mode:
   - "siapkan spek developer dari frame ini" + URL → `spec`
   - "cek dulu frame ini siap di-handoff atau belum" + URL → `readiness`
   - "tulis anotasi untuk dev di frame checkout" + URL → `annotate` (menulis ke Figma Dev Mode, selalu konfirmasi dulu)
   - "buat dokumentasi komponen Button ini" + URL → `component-doc`
-- **Siapkan**: URL frame ber-`node-id` — semua angka diambil dari data Figma asli, bukan tebakan visual.
+  - "cek halaman ini udah pixel perfect belum sama figmanya" + URL frame + URL live → `qa` (computed styles vs nilai Figma → skor + diff + fix list + anotasi QA)
+- **Siapkan**: URL frame ber-`node-id` — semua angka diambil dari data Figma asli, bukan tebakan visual. Untuk `qa`: tambah URL live/localhost (paling akurat), atau screenshot/path kode implementasinya.
 
 ### 🗣️ ux-voice — bahasa profesional product design
 
@@ -110,7 +111,7 @@ Claude mencocokkan *niat* kalimatmu, bukan kata persis — kata-kata di bawah ad
   - "review portfolio ku dong" + URL → `review` (simulasi 3 pembaca: recruiter skim, hiring manager, craft & bahasa — temuan berlokasi + 3 prioritas)
 - **Siapkan**: tujuan (lamar/branding/promosi/mentoring tim) + target role; daftar semua proyek kandidat (structure); bahan mentah proyek apa adanya + peran persismu (case-study); URL portfolio atau paste teks (review). Berlaku juga untuk membina anggota tim — sebutkan levelnya. Catatan jujur: dampak, angka, dan peran tidak pernah dikarang atau digelembungkan; proyek NDA dianonimisasi dengan konfirmasi dulu.
 
-## Peta 32 mode — kapan pakai apa, dapat apa, di mana
+## Peta 33 mode — kapan pakai apa, dapat apa, di mana
 
 | Perintah | Kapan dipakai | Siapkan | Output & lokasi |
 |---|---|---|---|
@@ -127,6 +128,7 @@ Claude mencocokkan *niat* kalimatmu, bukan kata persis — kata-kata di bawah ad
 | `/ux-handoff annotate` | Menulis catatan untuk dev di Figma | URL frame (idealnya sudah lolos readiness) | **Anotasi Dev Mode** kategori UX & Development + marker |
 | `/ux-handoff spec` | Spek developer dari desain | URL frame ber-`node-id` | Spek lengkap → file .md |
 | `/ux-handoff component-doc` | Dokumentasi komponen design system | URL komponen di Figma | Dokumentasi → file .md |
+| `/ux-handoff qa` | Cek hasil coding vs desain (pixel perfect) | URL frame Figma + URL live/screenshot/path kode | Skor + tabel diff + fix list → .md/artifact + **anotasi QA di Figma** |
 | `/ux-voice` (quick) | Kalimat awam soal masalah UI → kalimat profesional | Kalimat awamnya saja | Terjemahan 🇮🇩+🇬🇧 + prinsip UX → chat |
 | `/ux-voice full` | Butuh semua varian untuk beberapa channel | Kalimat awam | + 3 tone (designer/dev/stakeholder) + format critique → chat |
 | `/ux-voice critique` | Observasi mau jadi design critique formal | Kalimat awam (+ konteks screen bila ada) | Observasi → Dampak → Rekomendasi → Severity → chat |
@@ -179,7 +181,7 @@ Claude bertanya intake → user flow (disetujui dulu) → wireframe (disetujui) 
 
 ## Aturan tetap yang dijamin skill
 
-- Angka/warna di spek & audit **selalu dari data Figma asli** — tidak pernah menebak dari screenshot.
+- Angka/warna di spek & audit **selalu dari data Figma asli** — tidak pernah menebak dari screenshot; di mode `qa`, nilai implementasi juga dari computed styles/kode — perbandingan visual dari screenshot selalu dilabeli estimasi (dan tidak menghasilkan skor angka).
 - Kontras warna **dihitung**, bukan dikira-kira.
 - Data riset tidak pernah dikarang; artefak tanpa data diberi label "proto — perlu divalidasi".
 - Anotasi Figma: bahasa sederhana, terpisah kategori **UX** (maksud) dan **Development** (aturan teknis).
